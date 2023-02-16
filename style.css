@@ -112,3 +112,9 @@ form button:hover {
     text-decoration-line: line-through;
     opacity: 0.7;
 }
+
+.fall {
+    transform: translateX(30rem) ;
+    opacity: 0;
+
+}
