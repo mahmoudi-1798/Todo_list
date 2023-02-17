@@ -1,9 +1,12 @@
 :root {
-    --text-color : whitesmoke;
-
+    --text-color : white;
+    --main-blue : #4882ff;
+    --btn-blue : #48b6d1;
+    --main-green : #63ff85;
+    --btn-green : rgb(89, 221, 89);
+    --btn-red : rgb(255, 60, 60);
     --font-family : "Cabin", sans-serif;
 }
-
 
 *{
     margin: 0;
@@ -12,7 +15,7 @@
 }
 
 body {
-    background: linear-gradient(120deg, #63ff85, #4882ff);
+    background: linear-gradient(120deg, var(--main-green), var(--main-blue));
     color: var(--text-color);
     font-family: var(--font-family);
     height: 100vh;
@@ -20,7 +23,6 @@ body {
 
 header {
     font-size: 2.8rem;
-
 }
 
 header,form {
@@ -39,21 +41,21 @@ form button{
 } 
 
 form button {
-    color:#48b6d1;
-    background-color: white;
+    color: var(--btn-blue);
+    background-color: var(--text-color);
     transition: all 0.4s ease-in-out;
     cursor: pointer;
 }
 
 form button:hover {
     background:transparent;
-    color: white;
+    color: var(--text-color);
 }
 
 .todo-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .todo-list {
@@ -63,14 +65,13 @@ form button:hover {
 
 .todo {
     margin: 0.5rem;
-    background-color: white;
+    background-color: var(--text-color);
     color: black;
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.6s ease;
-
 }
 
 .todo:hover {
@@ -83,8 +84,7 @@ form button:hover {
 
 .trash-btn,
 .complete-btn {
-    background: #4882ff;
-    color: white;
+    color: var(--text-color);
     border: none;
     padding: 1rem;
     cursor: pointer;
@@ -92,11 +92,11 @@ form button:hover {
 }
 
 .complete-btn {
-    background-color: rgb(89, 221, 89);
+    background-color: var(--btn-green);
 }
 
 .trash-btn {
-    background-color: rgb(255, 60, 60);
+    background-color: var(--btn-red);
 }
 
 .todo-item {
@@ -116,5 +116,53 @@ form button:hover {
 .fall {
     transform: translateX(30rem) ;
     opacity: 0;
+}
 
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: var(--main-blue);
+    width: 12rem;
+    cursor: pointer;
+    padding: 1.25rem 0.7rem;
+    font-size: 17px;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    color: var(--btn-blue);
+    background-color: rgb(238, 238, 238);
+    top: 0;
+    right: 0;
+    padding: 0.8rem 1.3rem 1.3rem 1.3rem;
+    pointer-events: none;
+    font-size: 27px;
+    transition: all 0.6s ease;
+}
+
+.select:hover::after {
+    color: rgb(238, 238, 238);
+    background-color: var(--btn-blue);
+    cursor: pointer;
+}
+
+.filter-todo * {
+    color: var(--btn-blue);
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
 }
